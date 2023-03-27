@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Convert HTML to Markdown</title>
+    <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+
+</head>
+
+<body>
+
+<!--// HTML convert to Markdown text
+
+//  Form input HTML text to convert to Markdown text
+-->
+<script type="text/javascript">
+
+function convertHtmlToMarkdown(inputHtml ) {
+    // Create an instance of the Turndown service
+    var  turndownService = new TurndownService();
+
+    var markdown = turndownService.turndown(inputHtml);
+
+    // set markdown text 
+    document.getElementById('outputMarkdown').value = markdown;
+
+//return markdown;
+
+}
+
+</script>
+
+
+<h1>Convert HTML to Markdown</h1>
+<div id="markdown">
+
+    <p>Enter HTML text here</p>
+    <table>
+    <tr>
+    
+<td>   <textarea id="inputHtml" rows="50" cols="50" placeholder="Enter HTML text here"></textarea>
+</td> 
+<td>
+    <button onclick="convertHtmlToMarkdown(document.getElementById('inputHtml').value)">Convert</button>
+
+</td>
+<td>
+    <textarea id="outputMarkdown" rows="50" cols="50" placeholder="Markdown text will appear here"></textarea>
+</td>
+</tr>
+    
+<tr>
+    <td>
+    <!-- add button clear inputHtml area  -->
+    <button onclick="document.getElementById('inputHtml').value = ''">Clear</button>
+</td>
+
+<td></td>
+<td>
+    <!-- add button clear outputMarkdown area -->
+    <button onclick="document.getElementById('outputMarkdown').value = ''">Clear</button>
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
