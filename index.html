@@ -72,8 +72,10 @@ function readselectedfileToHtmlArea() {
     <!-- add button clear inputHtml area  -->
     <button onclick="document.getElementById('inputHtml').value = ''">Clear</button>
 
-    <!-- add button  upload loacal html file to inputHtml area  -->
-    <input type="file" id="file" name="file" onchange="readselectedfileToHtmlArea()" />
+   
+    <!-- add button upload local html file to inputHtml area and add filter to select only html file  --> 
+    <input type="file" id="file" name="file" onchange="readselectedfileToHtmlArea()" accept=".html" />
+    
 </td>
 
 <td></td>
