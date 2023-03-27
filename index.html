@@ -28,6 +28,24 @@ function convertHtmlToMarkdown(inputHtml ) {
 
 }
 
+function readselectedfileToHtmlArea() {
+    var file = document.getElementById('file').files[0];
+
+    if ( file == null ) {
+        //alert("No file selected.");
+        return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var contents = e.target.result;
+        document.getElementById('inputHtml').value = contents;
+    };
+    reader.readAsText(file);
+}
+
+
+
 </script>
 
 
@@ -53,12 +71,18 @@ function convertHtmlToMarkdown(inputHtml ) {
     <td>
     <!-- add button clear inputHtml area  -->
     <button onclick="document.getElementById('inputHtml').value = ''">Clear</button>
+
+    <!-- add button  upload loacal html file to inputHtml area  -->
+    <input type="file" id="file" name="file" onchange="readselectedfileToHtmlArea()" />
 </td>
 
 <td></td>
 <td>
     <!-- add button clear outputMarkdown area -->
     <button onclick="document.getElementById('outputMarkdown').value = ''">Clear</button>
+
+    <!-- add button download outputMarkdown text to local file -->
+    <a id="downloadlink" download="outputMarkdown.txt" href="" onclick="document.getElementById('downloadlink').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.getElementById('outputMarkdown').value)">Download</a>
 </td>
 </tr>
 </table>
